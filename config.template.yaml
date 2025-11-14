@@ -1,0 +1,201 @@
+# Nine-Stage Automated eBook Generation System
+# Configuration Template
+#
+# Instructions:
+# 1. Copy this file: cp config.template.yaml config.yaml
+# 2. Fill in all values marked with "INSERT_" or "CONFIGURE_"
+# 3. Remove or update example values to match your specific needs
+# 4. Save and use with: python run_pipeline.py --config config.yaml
+
+# =============================================================================
+# CONTENT PARAMETERS
+# =============================================================================
+
+# Primary subject matter for the eBook
+# Examples: "weight loss", "muscle building", "nutrition planning", "mental wellness"
+topic: "INSERT_TOPIC_HERE"
+
+# Primary SEO keyword to target
+# Examples: "intermittent fasting", "strength training", "keto diet", "stress management"
+main_keyword: "INSERT_MAIN_KEYWORD_HERE"
+
+# Overarching theme that ties the content together
+# Examples: "sustainable transformation", "science-backed fitness", "beginner-friendly wellness"
+theme: "INSERT_THEME_HERE"
+
+# =============================================================================
+# AUDIENCE & STYLE PARAMETERS
+# =============================================================================
+
+# Specific demographic and psychographic profile
+# Examples:
+#   - "busy professionals aged 30-45"
+#   - "fitness beginners with no gym experience"
+#   - "women over 40 looking to restart their fitness journey"
+#   - "millennials interested in holistic wellness"
+target_audience: "INSERT_TARGET_AUDIENCE_HERE"
+
+# Voice and attitude of the content
+# Options: "empowering", "conversational", "authoritative", "inspiring", "supportive", "motivational"
+tone: "INSERT_TONE_HERE"
+
+# Emotional atmosphere of the content
+# Options: "motivational", "calming", "energetic", "supportive", "uplifting", "confident"
+mood: "INSERT_MOOD_HERE"
+
+# =============================================================================
+# DISTRIBUTION PARAMETERS
+# =============================================================================
+
+# Where the eBook will be sold/distributed
+# Options: "Amazon KDP", "Gumroad", "Etsy", "Self-hosted", "Payhip", "Teachable"
+distribution_platform: "INSERT_PLATFORM_HERE"
+
+# Technical format for final delivery
+# Options: "PDF", "EPUB", "Kindle", "Interactive PDF", "Multi-format"
+primary_format: "INSERT_FORMAT_HERE"
+
+# =============================================================================
+# CONTENT STRUCTURE PARAMETERS
+# =============================================================================
+
+# Target word count per chapter
+# Recommended range: 1500-2500 words
+# Note: Enter number only, no quotes
+chapter_length: INSERT_WORD_COUNT_HERE
+
+# Types of interactive elements to include per chapter
+# Examples: "Printable Trackers, Guided Journal Pages, Progress Checklists, Habit Worksheets"
+# Available types:
+#   - Printable Tracker
+#   - Guided Journal Page
+#   - Progress Checklist
+#   - Habit Worksheet
+#   - Milestone Calendar
+#   - Reflection Prompts
+interactive_elements_included: "INSERT_ELEMENT_TYPES_HERE"
+
+# =============================================================================
+# SEARCH VALIDATION PARAMETERS
+# =============================================================================
+
+# Minimum Google search results required for query validation
+# Default: 12000000 (12 million)
+# Note: Enter number only, no quotes
+min_search_results: 12000000
+
+# =============================================================================
+# PIPELINE EXECUTION SETTINGS (Optional)
+# =============================================================================
+
+# Number of chapters to generate (default: 5)
+num_chapters: 5
+
+# Enable/disable specific pipeline stages
+stages_enabled:
+  stage_1_seo_queries: true
+  stage_2_outline: true
+  stage_3_table_of_contents: true
+  stage_4_chapter_writing: true
+  stage_5_optimization: true
+  stage_6_cover_design: true
+  stage_7_interactive_elements: true
+  stage_8_diagrams: true
+  stage_9_backgrounds: true
+
+# =============================================================================
+# API CONFIGURATION (Optional - for automated pipeline execution)
+# =============================================================================
+
+# LLM API Settings (for Stages 1-5, 7)
+llm_api:
+  provider: "anthropic"  # Options: "anthropic", "openai", "google"
+  model: "claude-sonnet-4.5"  # or "gpt-4-turbo", "gemini-pro"
+  api_key: "CONFIGURE_YOUR_API_KEY_HERE"  # Use environment variable: ${ANTHROPIC_API_KEY}
+
+# Image Generation API Settings
+image_api:
+  # DALL·E 3 for cover design (Stage 6)
+  dalle:
+    api_key: "CONFIGURE_YOUR_OPENAI_API_KEY_HERE"  # Use environment variable: ${OPENAI_API_KEY}
+
+  # FLUX.1-schnell for diagrams and backgrounds (Stages 8-9)
+  flux:
+    api_key: "CONFIGURE_YOUR_REPLICATE_API_KEY_HERE"  # Use environment variable: ${REPLICATE_API_KEY}
+
+# =============================================================================
+# OUTPUT SETTINGS (Optional)
+# =============================================================================
+
+# Directory for generated content
+output_directory: "./output"
+
+# File naming convention
+# Options: "timestamp", "topic_based", "custom"
+naming_convention: "topic_based"
+
+# Export formats
+export_formats:
+  - "markdown"
+  - "pdf"
+  - "docx"
+
+# =============================================================================
+# EXAMPLE CONFIGURATION (Fitness eBook)
+# Uncomment and modify to use this example
+# =============================================================================
+
+# topic: "weight loss for beginners"
+# main_keyword: "sustainable weight loss"
+# theme: "science-backed transformation without extremes"
+# target_audience: "busy professionals aged 30-50 with limited workout time"
+# tone: "empowering"
+# mood: "motivational"
+# distribution_platform: "Amazon KDP"
+# primary_format: "Kindle"
+# chapter_length: 2000
+# interactive_elements_included: "Printable Trackers, Progress Checklists, Habit Worksheets"
+
+# =============================================================================
+# NOTES & BEST PRACTICES
+# =============================================================================
+
+# 1. Topic Selection:
+#    - Choose topics with proven search demand (12M+ results)
+#    - Focus on evergreen content that remains relevant
+#    - Ensure alignment between topic, keyword, and theme
+
+# 2. Audience Definition:
+#    - Be as specific as possible (age, lifestyle, pain points)
+#    - Consider reading level and technical familiarity
+#    - Match tone/mood to audience preferences
+
+# 3. Distribution Platform:
+#    - Amazon KDP: Optimize for Kindle formatting, use reviews
+#    - Gumroad: Include bonus materials, direct audience relationship
+#    - Etsy: Visual appeal critical, printable elements valuable
+
+# 4. Chapter Length:
+#    - 1500 words: Quick reads, actionable guides
+#    - 2000 words: Balanced depth and readability (recommended)
+#    - 2500 words: Comprehensive coverage, expert positioning
+
+# 5. Interactive Elements:
+#    - Include 1-2 per chapter for maximum engagement
+#    - Ensure they're platform-compatible (printable vs digital)
+#    - Focus on habit-building and tracking tools
+
+# =============================================================================
+# VALIDATION CHECKLIST
+# =============================================================================
+
+# Before running the pipeline, verify:
+# [ ] All "INSERT_" placeholders replaced with actual values
+# [ ] Topic has sufficient search volume (12M+ results)
+# [ ] Target audience is clearly defined
+# [ ] Tone and mood are aligned with audience expectations
+# [ ] Distribution platform matches primary format
+# [ ] Chapter length is appropriate for topic depth
+# [ ] Interactive elements match distribution platform capabilities
+# [ ] API keys configured (if using automated execution)
+# [ ] Output directory exists and has write permissions
