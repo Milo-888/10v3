@@ -278,7 +278,7 @@ const TopicInputForm: React.FC<TopicInputFormProps> = ({ onSubmit, isLoading = f
               <h3 className="text-sm font-medium text-blue-800">Generated SEO Queries</h3>
             </div>
             <ul className="text-sm text-blue-700 space-y-1">
-                {seoQueries.map((query, index) => (
+                {seoQueries.map((_, index) => (
                   <li key={index} className="flex items-center justify-between space-x-2">
                     <div className="flex items-center space-x-2">
                       <TrendingUp className="h-3 w-3" />
